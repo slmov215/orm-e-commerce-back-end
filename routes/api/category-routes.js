@@ -7,9 +7,12 @@ router.get('/', async (req, res) => {
   try {
     // find all categories
     const category = await Category.findAll({
-      attributes: [],
+      attributes: ["id", "category_name"],
       // be sure to include its associated Products
-      includes: [],
+      includes: [{
+          model: Product,
+          attributes: ["id", "product_name", "price", "stock", "category_id"],
+        }],
     })
     res.status(200).json(data);
   } catch (err) {
@@ -24,11 +27,11 @@ router.get('/:id', async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: [],
+      attributes: ["id", "category_name"],
       // be sure to include its associated Products
       includes: [{
         model: Product,
-        attributes: [],
+        attributes: ["id", "product_name", "price", "stock", "category_id"],
       }]
     });
     res.status(200).json(data);
@@ -41,7 +44,7 @@ router.post('/', async (req, res) => {
   try {
     // create a new Category
     const category = await Category.create({
-      Category_name: req.body.Category_name
+      Category_name: req.body.Category_name,
     });
     res.status(200).json(data);
   } catch (err) {
