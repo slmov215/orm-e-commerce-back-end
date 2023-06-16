@@ -20,7 +20,8 @@ router.get('/', async (req, res) => {
           attributes: ["id", "tag_name"],
         },
       ],
-    })
+    });
+    console.log(product, "hi");
     res.status(200).json(product);
   } catch (err) {
     res.status(400).json(err);
@@ -155,5 +156,9 @@ router.delete('/:id', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+console.log("hello");
+
+
 
 module.exports = router;

@@ -16,7 +16,8 @@ router.get('/', async (req, res) => {
         },
       ],
     })
-    res.status(200).json(data);
+
+    res.status(200).json(tag);
   } catch(err) {
     res.status(400).json(err);
   }
@@ -32,7 +33,7 @@ router.get('/:id', async (req, res) => {
       attributes: ["id", "tag_name"],
       include: [],
     })
-    res.status(200).json(data);
+    res.status(200).json(tag);
   } catch (err) {
     res.status(400).json(err);
   } 
@@ -47,7 +48,7 @@ router.post('/', async (req, res) => {
         id: req.params.id,
       }
     })
-    res.status(200).json(data);
+    res.status(200).json(tag);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -61,7 +62,7 @@ router.put('/:id', async (req, res) => {
         id: req.params.id,
       }
     })
-    res.status(200).json(data);
+    res.status(200).json(tag);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -75,7 +76,7 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id,
       }
     })
-    res.status(200).json(data);
+    res.status(200).json(tag);
   } catch (err) {
     res.status(400).json(err);
   }
