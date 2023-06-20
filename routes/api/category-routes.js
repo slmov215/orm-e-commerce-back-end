@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
           model: Product,
           attributes: ["id", "product_name", "price", "stock", "category_id"],
         }],
-    })
+    });
     res.status(200).json(category);
   } catch (err) {
     res.status(400).json(err);
@@ -34,7 +34,11 @@ router.get('/:id', async (req, res) => {
         attributes: ["id", "product_name", "price", "stock", "category_id"],
       }]
     });
-    res.status(200).json(data);
+    if (!category) {
+      res.status(404).json({message: 'No category found with that id!'});
+      return;
+    }
+    res.status(200).json(category);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -60,7 +64,7 @@ router.put('/:id', async (req, res) => {
         id: req.params.id,
       },
     })
-    res.status(200).json(data);
+    res.status(200).json(category);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -73,8 +77,12 @@ router.delete('/:id', async (req, res) => {
       where: {
         id: req.params.id,
       },
-    })
-    res.status(200).json(data);
+    });
+    if (!category) {
+      res.status(404).json({message: 'No category found with that id!'});
+      return;
+    }
+    res.status(200).json(category);
   } catch (err) {
     res.status(400).json(err);
   }

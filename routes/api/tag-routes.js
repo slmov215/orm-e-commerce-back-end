@@ -15,8 +15,7 @@ router.get('/', async (req, res) => {
           attributes: ["id", "product_name", "price", "stock", "category_id"],
         },
       ],
-    })
-
+    });
     res.status(200).json(tag);
   } catch(err) {
     res.status(400).json(err);
@@ -31,13 +30,21 @@ router.get('/:id', async (req, res) => {
         id: req.params.id,
       },
       attributes: ["id", "tag_name"],
-      include: [],
-    })
+      // be sure to include its associated Product data
+      include: [
+        {
+          model: Product,
+          attributes: ["id", "product_name", "price", "stock", "category_id"]
+        }],
+    });
+    if (!tag) {
+      res.status(404).json({message: 'No tag found with that id!'});
+      return;
+    }
     res.status(200).json(tag);
   } catch (err) {
     res.status(400).json(err);
   } 
-  // be sure to include its associated Product data
 });
 
 router.post('/', async (req, res) => {
@@ -47,7 +54,7 @@ router.post('/', async (req, res) => {
       where: {
         id: req.params.id,
       }
-    })
+    });
     res.status(200).json(tag);
   } catch (err) {
     res.status(400).json(err);
@@ -61,7 +68,7 @@ router.put('/:id', async (req, res) => {
       where: {
         id: req.params.id,
       }
-    })
+    });
     res.status(200).json(tag);
   } catch (err) {
     res.status(400).json(err);
@@ -76,6 +83,10 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id,
       }
     })
+    if (!tag) {
+      res.status(404).json({message: 'No tag found with that id!'});
+      return;
+    }
     res.status(200).json(tag);
   } catch (err) {
     res.status(400).json(err);
