@@ -32,7 +32,11 @@ This week, I was tasked in completing an application, that was given, with codes
 * Then, you can then use programs like Insomnia to test the operation of the program's routes.
 
 ### Refer to the video demonstration below, where it will show the full functionality of the application.
-[Click here to watch]()
+[Click here to watch](
+
+https://github.com/slmov215/orm-e-commerce-back-end/assets/127278005/9ab7360f-5551-41ab-8740-c93b838a12bd
+
+)
 
 Click here for the [Google Drive's link](https://drive.google.com/file/d/1eaULOFH0zlpa2UldtQKkOjO_DuH7AFpD/view?usp=drive_link)
 
