@@ -101,7 +101,7 @@ router.put('/:id', async (req, res) => {
       },
     })
     // if not found, log this message
-    if (!product[0]) {
+    if (!product) {
       res.status(404).json({ message: 'There are no product found with that id!' });
       return;
     } else {

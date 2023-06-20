@@ -34,7 +34,7 @@ This week, I was tasked in completing an application, that was given, with codes
 ### Refer to the video demonstration below, where it will show the full functionality of the application.
 [Click here to watch]()
 
-Click here for the [Google Drive's link]()
+Click here for the [Google Drive's link](https://drive.google.com/file/d/1eaULOFH0zlpa2UldtQKkOjO_DuH7AFpD/view?usp=drive_link)
 
 ![Insomnia ScreenShot](./db/lib/insomnia-screenshot.png)
 
